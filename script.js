@@ -659,7 +659,11 @@ async function fetchWithTimeout(url, options, timeoutMs = REQUEST_TIMEOUT_MS) {
 
 function openPendingPopup(name) {
   try {
-    const popupWindow = window.open("", name);
+    const popupWindow = window.open(
+      "",
+      name,
+      "width=900,height=700,resizable=yes,scrollbars=yes"
+    );
 
     if (popupWindow && !popupWindow.closed) {
       popupWindow.document.write(`
@@ -721,9 +725,10 @@ function openPendingPopup(name) {
         </html>
       `);
       popupWindow.document.close();
+      return popupWindow;
     }
 
-    return popupWindow;
+    return null;
   } catch (error) {
     return null;
   }
@@ -881,13 +886,30 @@ async function handleFormSubmit(event) {
       if (ticketWindow && !ticketWindow.closed && ticketUrl !== "#") {
         ticketWindow.location.href = ticketUrl;
       } else if (ticketUrl !== "#") {
-        window.open(ticketUrl, "_blank");
+        window.open(ticketUrl, "_blank", "noopener,noreferrer");
       }
 
-      if (whatsappWindow && !whatsappWindow.closed && whatsappUrl) {
-        whatsappWindow.location.href = whatsappUrl;
-      } else if (whatsappUrl) {
-        window.open(whatsappUrl, "_blank");
+      let whatsappOpened = false;
+
+      try {
+        if (whatsappWindow && !whatsappWindow.closed && whatsappUrl) {
+          whatsappWindow.location.replace(whatsappUrl);
+          whatsappOpened = true;
+        }
+      } catch (error) {
+        whatsappOpened = false;
+      }
+
+      if (!whatsappOpened && whatsappUrl) {
+        setTimeout(() => {
+          const newTab = window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+          if (!newTab) {
+            setStatus(
+              "Registration successful. If the WhatsApp group did not open automatically, please use the 'Join WhatsApp Group' button below.",
+              "success"
+            );
+          }
+        }, 600);
       }
 
       resetFormAfterSuccess();
