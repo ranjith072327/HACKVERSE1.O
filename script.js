@@ -29,6 +29,7 @@ const FIELD_PREFIXES = {
 document.addEventListener("DOMContentLoaded", () => {
   bindEvents();
   initializeFormUI();
+  initializeRevealAnimations();
 });
 
 function bindEvents() {
@@ -111,6 +112,48 @@ function initializeFormUI() {
   resetSuccessCard();
   resetStatus();
   setSubmitButtonIdle();
+}
+
+function initializeRevealAnimations() {
+  const revealTargets = document.querySelectorAll(
+    ".hackathon-title-card, .leader-card, .guideline-card, .help-card, .step-card, .sponsor-card, .hero-banner, .association-strip"
+  );
+
+  if (!revealTargets.length) return;
+
+  revealTargets.forEach((element) => {
+    element.style.opacity = "0";
+    element.style.transform += " translateY(28px)";
+    element.style.transition =
+      "opacity 0.7s ease, transform 0.7s ease, box-shadow 0.35s ease, border-color 0.35s ease";
+  });
+
+  if (!("IntersectionObserver" in window)) {
+    revealTargets.forEach(showRevealElement);
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries, revealObserver) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          showRevealElement(entry.target);
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.12,
+      rootMargin: "0px 0px -30px 0px"
+    }
+  );
+
+  revealTargets.forEach((element) => observer.observe(element));
+}
+
+function showRevealElement(element) {
+  element.style.opacity = "1";
+  element.style.transform = element.style.transform.replace(" translateY(28px)", "");
 }
 
 function handleTeamSizeChange() {
@@ -707,6 +750,20 @@ function focusAndScrollToField(field) {
   });
 }
 
+function resetFormAfterSuccess() {
+  if (!form) return;
+
+  form.reset();
+  toggleMemberBlocks();
+  updateFeeDisplay();
+  clearDuplicateValidity();
+  resetStatus();
+
+  if (paymentScreenshotInput) {
+    paymentScreenshotInput.value = "";
+  }
+}
+
 async function handleFormSubmit(event) {
   event.preventDefault();
   resetSuccessCard();
@@ -833,10 +890,7 @@ async function handleFormSubmit(event) {
         window.open(whatsappUrl, "_blank");
       }
 
-      form.reset();
-      toggleMemberBlocks();
-      updateFeeDisplay();
-      clearDuplicateValidity();
+      resetFormAfterSuccess();
 
       if (successCard) {
         successCard.scrollIntoView({

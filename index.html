@@ -19,7 +19,7 @@
   </div>
 
   <!-- Flash News Rolling Section -->
-  <section class="flash-news-bar">
+  <section class="flash-news-bar flash-news-sticky">
     <div class="flash-news-label">FLASH NEWS</div>
     <div class="flash-news-track-wrap">
       <div class="flash-news-track">
@@ -44,8 +44,8 @@
     </div>
   </section>
 
-  <!-- Sticky + Animated Text Header -->
-  <header class="college-header sticky-header">
+  <!-- College Header -->
+  <header class="college-header">
     <div class="container college-header-inner">
       <div class="college-header-text">
         <h1>VIGNAN'S INSTITUTE OF MANAGEMENT AND TECHNOLOGY FOR WOMEN</h1>
@@ -66,6 +66,19 @@
     </div>
   </section>
 
+  <!-- Hackathon Title Highlight Section -->
+  <section class="hackathon-title-section">
+    <div class="container">
+      <div class="hackathon-title-card">
+        <p class="hackathon-mini-text">Official Event Title</p>
+        <h2>Hackverse 1.0 - Coding Using AI Tools</h2>
+        <p class="hackathon-subtext">
+          24-Hour Innovation Challenge for Students to Build, Innovate, and Solve using AI-Assisted Development
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- Leadership Section -->
   <section class="leadership-section">
     <div class="container">
@@ -74,7 +87,7 @@
         <p>Official organizing members for Hackverse 1.0</p>
       </div>
 
-      <div class="leadership-grid">
+      <div class="leadership-grid leadership-grid-balanced">
         <div class="leader-card">
           <h4>Chief Patron</h4>
           <p><strong>Dr. L. Rathaiah</strong></p>
@@ -82,7 +95,7 @@
         </div>
 
         <div class="leader-card">
-          <h4>Co-Chief Patron / CEO</h4>
+          <h4>Co-Chief Patron</h4>
           <p><strong>Sri B. Shravan</strong></p>
           <p>CEO, Vignan Group of Institutions</p>
         </div>
@@ -97,6 +110,25 @@
           <h4>Convenor</h4>
           <p><strong>Dr. C. Srinivasa Kumar</strong></p>
           <p>Professor &amp; Head</p>
+          <p>Department of CSE (Data Science)</p>
+        </div>
+
+        <div class="leader-card">
+          <h4>Overall Faculty Coordinators</h4>
+          <p><strong>Dr. P. Eswaraiah</strong></p>
+          <p>Associate Professor</p>
+          <p>Department of CSE (Data Science)</p>
+          <div class="leader-divider"></div>
+          <p><strong>Dr. J. Ranjith</strong></p>
+          <p>Assistant Professor</p>
+          <p>Department of CSE (Data Science)</p>
+        </div>
+
+        <div class="leader-card">
+          <h4>Overall Student Coordinators</h4>
+          <p><strong>Ms. K. Hema Sri</strong></p>
+          <p><strong>Ms. G. Lakshmi Prassann</strong></p>
+          <p><strong>Ms. G. Kundana</strong></p>
           <p>Department of CSE (Data Science)</p>
         </div>
       </div>
@@ -269,7 +301,7 @@
               <div class="step-chip">Step 2</div>
               <h4>Team Leader Details</h4>
 
-              <div class="grid">
+              <div class="grid form-grid-aligned">
                 <div class="field">
                   <label for="leaderName">Name</label>
                   <input type="text" id="leaderName" name="leaderName" required />
@@ -307,7 +339,7 @@
               <div class="step-chip">Step 3</div>
               <h4>Member 2 Details</h4>
 
-              <div class="grid">
+              <div class="grid form-grid-aligned">
                 <div class="field">
                   <label for="member2Name">Name</label>
                   <input type="text" id="member2Name" name="member2Name" required />
@@ -345,7 +377,7 @@
               <div class="step-chip">Step 4</div>
               <h4>Member 3 Details</h4>
 
-              <div class="grid">
+              <div class="grid form-grid-aligned">
                 <div class="field">
                   <label for="member3Name">Name</label>
                   <input type="text" id="member3Name" name="member3Name" />
@@ -383,7 +415,7 @@
               <div class="step-chip">Step 5</div>
               <h4>Member 4 Details</h4>
 
-              <div class="grid">
+              <div class="grid form-grid-aligned">
                 <div class="field">
                   <label for="member4Name">Name</label>
                   <input type="text" id="member4Name" name="member4Name" />
@@ -503,16 +535,13 @@
 
         <aside class="registration-side">
           <div class="help-card three-d-card coordinator-card">
-            <h4>Faculty Coordinators</h4>
+            <h4>Organizing Committee</h4>
             <div class="coordinator-scroll">
-              <ol class="coordinator-list">
-                <li><strong>Dr. J. Ranjith</strong> — Assistant Professor, CSE(DS)</li>
-                <li><strong>Dr. P. Eswaraiah</strong> — Assistant Professor, CSE(DS)</li>
+              <ol class="coordinator-list serial-list">
                 <li><strong>Mrs. N. Sreeja</strong> — Assistant Professor, CSE(DS)</li>
                 <li><strong>Mrs. B. Sangeetha</strong> — Assistant Professor, CSE(DS)</li>
                 <li><strong>Mrs. Md. Fouziya</strong> — Assistant Professor, CSE(DS)</li>
                 <li><strong>Mrs. P. Amareshwari</strong> — Assistant Professor, CSE(DS)</li>
-                <li><strong>Mrs. T. Sai Priyanka</strong> — Assistant Professor, CSE(DS)</li>
                 <li><strong>Mrs. G. Haritha</strong> — Assistant Professor, CSE(DS)</li>
                 <li><strong>Dr. K. Padma Leela</strong> — Assistant Professor, ECE</li>
                 <li><strong>Mr. R. Krishna Nayak</strong> — Assistant Professor, IT</li>
@@ -530,10 +559,7 @@
           <div class="help-card three-d-card coordinator-card">
             <h4>Student Coordinators</h4>
             <div class="coordinator-scroll">
-              <ol class="coordinator-list">
-                <li><strong>Ms. K. Hema Sri</strong> — DS</li>
-                <li><strong>Ms. G. Lakshmi Prassanna</strong> — DS</li>
-                <li><strong>Ms. G. Kundana</strong> — DS</li>
+              <ol class="coordinator-list serial-list">
                 <li><strong>Ms. S. Ruchitha</strong> — DS</li>
                 <li><strong>Ms. C. Pavani</strong> — DS</li>
                 <li><strong>Ms. D. Abhignya</strong> — DS</li>
@@ -548,9 +574,9 @@
           </div>
 
           <div class="help-card three-d-card coordinator-card">
-            <h4>Student Sub Coordinators</h4>
+            <h4>Student Sub-Coordinators</h4>
             <div class="coordinator-scroll">
-              <ol class="coordinator-list">
+              <ol class="coordinator-list serial-list">
                 <li><strong>Manisha</strong> — CSE-B</li>
                 <li><strong>CH. Lohitha</strong> — AIML (A)</li>
                 <li><strong>Varsha Setti</strong> — IT</li>
@@ -566,21 +592,19 @@
           </div>
 
           <div class="help-card three-d-card contact-card">
-            <h4>For More Contact</h4>
+            <h4>For More Details Contact Us</h4>
             <div class="contact-block">
               <p class="contact-title"><strong>Faculty Coordinator:</strong></p>
               <p>Dr. J. Ranjith</p>
               <p>Assistant Professor</p>
-              <p>Department of CSE(DS)</p>
+              <p>Department of CSE (DS)</p>
               <p>+91-6369043983</p>
             </div>
 
             <div class="contact-block">
-              <p class="contact-title"><strong>Student Coordinator:</strong></p>
-              <p>Ms. K. Hema Sri</p>
-              <p>+91-8125617760</p>
-              <p>Ms. G. Kundana</p>
-              <p>+91-8919745409</p>
+              <p class="contact-title"><strong>Student Coordinators:</strong></p>
+              <p>Ms. K. Hema Sri — +91-8125617760</p>
+              <p>Ms. G. Kundana — +91-8919745409</p>
             </div>
           </div>
 
